@@ -8,9 +8,9 @@ Este repositorio contiene todo el material de mi Trabajo de Fin de Máster (TFM)
 
 ```
 Proyecto_Fin_Master/
-├── DATA/               # Conjuntos de datos utilizados y resultados
-│   ├── dataset_reducido.csv
-│   ├── dataset_completo.csv
+├── DATA/               # Conjuntos de datos utilizados. Son carpetas que contienen las transcripciones de las llamadas que son documentos de texto planos
+│   ├── LOTE_202050605
+│   ├── LOTE_AAAAMMDD
 │   └── ...
 ├── Documentos/         # Documentación principal y soporte
 │   ├── Memoria_TFM.pdf           # Documento final de la memoria
@@ -25,16 +25,16 @@ Proyecto_Fin_Master/
     ├── MODULO_06/
     ├── MODULO_07/
     ├── PLANTILLA_MODULO_PREPROCESAMIENTO.ipynb
-    ├── TXT_A_DATASET.ipynb
+    ├── config.Yaml
     └── utilidades_comunes.py
 ```
-
----
 
 ## 🎯 Descripción general
 
 1. **DATA**  
-   Conjuntos de datos originales y versiones procesadas (CSV).
+   Conjuntos de datos originales.
+   Se pueden ir creando nuevas carpetas con transcripciones para procesar, dichas carpetas tienen una nomenclatura especifica 
+   que luego utilizan los módulos del proceso. Se nombran como LOTES, así: LOTE_aaaammdd
 
 2. **Documentos**  
    - **Memoria_TFM.pdf**: Informe final del TFM.  
@@ -43,11 +43,11 @@ Proyecto_Fin_Master/
 3. **Modulos**  
    Cada carpeta `MODULO_0X` incluye:
    - Un notebook `.ipynb` con el código y explicación.
-   - Subcarpetas `salida/` y `ejemplos/` con CSV, logs y ficheros de muestra.
+   - Subcarpetas `salida/` 'logs/' y `ejemplos/` con CSV, logs y ficheros de muestra.
 
    Además:
-   - **PLANTILLA_MODULO_PREPROCESAMIENTO.ipynb**: Guía de preprocesamiento.
-   - **TXT_A_DATASET.ipynb**: Conversión de transcripciones a CSV.
+   - **PLANTILLA_MODULO_PREPROCESAMIENTO.ipynb**: es la plantilla de pasos básicos que tienen que tener todos los módulos.
+   - **config.Yaml**: fichero de configuracion
    - **utilidades_comunes.py**: Funciones de uso recurrente.
 
 ---
@@ -73,29 +73,4 @@ Proyecto_Fin_Master/
 4. Abre los notebooks en orden (01 → 07) y ejecútalos para replicar el flujo completo.
 
 ---
-
-## 📄 Licencia y Contacto
-
-- **Licencia**: MIT  
-- **Contacto**:  
-  Eva Martín — evamartin@example.com  
-  LinkedIn: https://www.linkedin.com/in/evamartin  
-``` ````
-
----
-
-### Paso 2: Pégalo en tu `README.md`
-
-- Borra lo que tengas actualmente en `README.md`.
-- Pega el bloque anterior completo.
-- Guarda (Ctrl+S).
-
-### Paso 3: Commit y push
-
-En Git Bash:
-
-```bash
-git add README.md
-git commit -m "Añadido README con estructura y guía de uso"
-git push origin master
-```
+Aunque el proceso está pensado para ejecutarse secuencialmente, es lo suficientemente flexible para que se puedan ejecutar los módulos de forma independiente
