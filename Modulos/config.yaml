@@ -9,7 +9,8 @@ parametros:
   max_new_tokens: 250
 
   # Modelo Hugging Face
-  #hf_token: "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"
+  
+
   modelo_hf_local: "gpt2"
   modelo_hf_colab: "meta-llama/Meta-Llama-3-8B-Instruct"
 
