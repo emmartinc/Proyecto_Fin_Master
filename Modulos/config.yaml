@@ -1,0 +1,55 @@
+rutas:
+  entrada: "./entrada"
+  salida: "./salida"
+  logs: "./logs"
+  ejemplos: "./ejemplos"
+
+parametros:
+  # Tokens máximos a generar
+  max_new_tokens: 250
+
+  # Modelo Hugging Face
+  #hf_token: "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"
+  modelo_hf_local: "gpt2"
+  modelo_hf_colab: "meta-llama/Meta-Llama-3-8B-Instruct"
+
+prompts:
+  prompt_colab: |
+    A continuación, tienes la transcripción de una conversación entre un AGENTE de seguros y un CLIENTE.
+    El texto no tiene marcas de quién está hablando, pero tu tarea es etiquetar cada intervención con **"Agente:"** o **"Cliente:"**, según corresponda.
+    No añadas, ni inventes frases. No introduzcas comentarios, encabezados ni ejemplos adicionales. En toda conversación, siempre interviene al menos el AGENTE.
+    El AGENTE suele hablar de: servicios, gestiones, condolencias, procesos administrativos, abogados, pólizas, coberturas, documentación, certificados, incidencias, autorizaciones.
+    El AGENTE usa expresiones típicas como:
+    - “Le informo de que...”
+    - “Nuestro equipo ya ha tramitado...”
+    - “Quería confirmar si...”
+    - “Lamento su pérdida...”
+    - “Vamos a proceder a...”
+    - “Tiene usted derecho a...”
+    - “Le facilito los datos...”
+    - “La documentación será enviada...”
+    Y el agente utiliza verbos como: informar, comunicar, gestionar, verificar, tramitar, emitir, remitir, acompañar, facilitar, revisar, proceder, atender, coordinar, solicitar.
+    El CLIENTE responde a las preguntas del agente, agradece, confirma información, expresa satisfacción o quejas, plantea dudas, o comparte su experiencia con el servicio.
+    El cliente uele usar expresiones como:
+    - “Muchas gracias por su ayuda.”
+    - “Sí, todo ha ido bien.”
+    - “No me ha llegado nada todavía.”
+    - “Estoy esperando desde hace días.”
+    - “No tengo claro ese trámite.”
+    - “¿Y eso cuánto tarda?”
+    - “Ya entregué la documentación.”
+    - “La persona que vino fue muy amable.”
+    Y el cliente utiliza verbos como: agradecer, confirmar, quejarse, entender, responder, detallar, aceptar, rechazar, necesitar, expresar, preguntar, explicar, consultar, recibir, esperar.
+    Ejemplo:
+    Texto original: Buenos días. En primer lugar, quería transmitirle nuestras condolencias por el fallecimiento. Gracias. ¿Se ha desarrollado correctamente el servicio? Sí, todo ha ido bien, gracias.
+    De acuerdo, le informo de que el servicio de gestoría ya está en marcha. Perfecto. Muchas gracias.
+    Texto etiquetado: Agente: Buenos días. En primer lugar, quería transmitirle nuestras condolencias por el fallecimiento. Cliente: Gracias. Agente: ¿Se ha desarrollado correctamente el servicio?
+    Cliente: Sí, todo ha ido bien, gracias. Agente: De acuerdo, le informo de que el servicio de gestoría ya está en marcha. Cliente: Perfecto. Muchas gracias.
+    Ahora haz lo mismo con esta conversación:
+    {texto}
+
+  prompt_local: |
+    Esta es la transcripción de una conversación entre un Agente y un Cliente. No tiene marcas de quién está hablando, pero tu tarea es etiquetar cada intervención con **"Agente:"** o **"Cliente:"**.
+    En toda conversación siempre interviene al menos el Agente. No añadas, no inventes frases. No omitas ninguna línea. Respeta el orden y formato original.
+    Ahora haz lo mismo con esta conversación:
+    {texto}
